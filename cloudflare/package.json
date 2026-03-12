@@ -1,0 +1,19 @@
+{
+  "name": "go-drp-cloudflare",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dynamic Reverse Proxy Gateway — Cloudflare Worker edition",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.12.21",
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "typescript": "^5.7.3",
+    "vitest": "~3.0.9",
+    "wrangler": "^4.5.1"
+  }
+}

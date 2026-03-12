@@ -5,6 +5,9 @@
 bin/
 *.exe
 
+# Node.js (Cloudflare Worker)
+node_modules/
+
 # Coverage
 coverage.out
 coverage.html
