@@ -1,0 +1,24 @@
+# Secrets – never committed
+.env
+
+# Build artefacts
+bin/
+*.exe
+
+# Coverage
+coverage.out
+coverage.html
+coverage.xml
+
+# Go tool cache / test cache
+vendor/
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+

@@ -1,0 +1,27 @@
+services:
+  gateway:
+    build:
+      context: .
+      args:
+        VERSION: ${VERSION:-dev}
+    image: go-drp:${VERSION:-dev}
+    ports:
+      - "${PORT:-8080}:8080"
+    env_file:
+      - .env
+    restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    # Health check hits the unauthenticated /health endpoint.
+    # Requires a base image that includes wget/curl (see Dockerfile comments).
+    # When using the distroless image, health checks should be performed by the
+    # surrounding infrastructure (load balancer, Kubernetes liveness probe, etc.).
+    # Uncomment the block below if you switch to an Alpine-based image:
+    # healthcheck:
+    #   test: ["CMD", "wget", "-qO-", "http://localhost:8080/health"]
+    #   interval: 30s
+    #   timeout: 5s
+    #   retries: 3
+    #   start_period: 5s
+
