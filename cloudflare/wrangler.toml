@@ -1,0 +1,33 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "go-drp"
+main = "src/index.ts"
+compatibility_date = "2025-03-10"
+
+# ── Environment Variables (non-secret) ────────────────────────────────────────
+# Set these here or override per-environment below.
+[vars]
+VERSION = "1.0.0"
+
+# Comma-separated list of allowed client IPs (empty = allow all).
+# WHITELIST_IP = "203.0.113.10,203.0.113.11"
+WHITELIST_IP = ""
+
+# Comma-separated allowlist of upstream hosts (SSRF protection).
+# When set, ONLY these hosts are permitted. When empty, the built-in
+# private-IP blocklist is used.
+# ALLOWED_UPSTREAM_HOSTS = "api.stripe.com,api.github.com"
+ALLOWED_UPSTREAM_HOSTS = ""
+
+# Per-IP rate limiting: requests per second. 0 = disabled.
+RATE_LIMIT_RPS = "0"
+
+# Burst size for the token-bucket rate limiter. 0 = defaults to RATE_LIMIT_RPS.
+RATE_LIMIT_BURST = "0"
+
+# ── Secrets (set via `wrangler secret put`) ───────────────────────────────────
+# PROXY_TOKEN — shared secret that clients must send in the X-Proxy-Token header.
+# Set it with: npx wrangler secret put PROXY_TOKEN
+
+# ── Staging environment example ───────────────────────────────────────────────
+# [env.staging]
+# vars = { VERSION = "1.0.0-staging" }
