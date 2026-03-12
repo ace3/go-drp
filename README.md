@@ -2,15 +2,15 @@
 
 A lightweight, secure HTTP gateway written in Go. It lets a client on one network reach any HTTPS upstream by tunnelling requests through a single, token-protected endpoint.
 
-**Typical use-case:** a server in Singapore needs to call Indonesian APIs that block foreign IPs. Deploy `go-drp` on a Jakarta server and route all calls through it.
+**Typical use-case:** a client needs to reach an upstream API through a controlled, token-authenticated gateway. Deploy `go-drp` anywhere and route calls through it.
 
 ```
-Client (Singapore)
-  │  POST /kci.id/jakarta/endpoint
+Client
+  │  POST /api.example.com/some/endpoint
   │  X-Proxy-Token: <secret>
   ▼
-go-drp (Jakarta :8080)
-  │  https://kci.id/jakarta/endpoint
+go-drp (:8080)
+  │  https://api.example.com/some/endpoint
   ▼
 Upstream API
 ```

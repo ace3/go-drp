@@ -3,12 +3,12 @@
 A port of the [go-drp Dynamic Reverse Proxy Gateway](../README.md) to **Cloudflare Workers**. This Worker provides the same feature set as the Go version — token-authenticated, SSRF-protected dynamic reverse proxying — running on Cloudflare's global edge network.
 
 ```
-Client (anywhere)
-  │  POST /kci.id/jakarta/endpoint
+Client
+  │  POST /api.example.com/some/endpoint
   │  X-Proxy-Token: <secret>
   ▼
 go-drp (Cloudflare Worker — edge)
-  │  https://kci.id/jakarta/endpoint
+  │  https://api.example.com/some/endpoint
   ▼
 Upstream API
 ```

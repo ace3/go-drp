@@ -128,7 +128,7 @@ func main() {
 		}
 	}()
 
-	logger.Info("Jakarta Secure Gateway starting",
+	logger.Info("Dynamic Reverse Proxy starting",
 		"port", cfg.Port,
 		"version", version,
 		"mtls", mtlsEnabled,
